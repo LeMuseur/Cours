@@ -1,0 +1,36 @@
+#BlueJ class context
+comment0.target=PointDegSexa
+comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ PointDegSexa\ ici.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment1.params=longitude\ latitude
+comment1.target=PointDegSexa(int[],\ int[])
+comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ PointDegSexa\r\n\ \ \ \ \r\n\ \ \ \ public\ PointDegSexa()\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ this.longitude\ \=\ new\ int\ [3];\r\n\ \ \ \ \ \ \ this.latitude\ \=\ new\ int\ [3];\r\n\ \ \ \ \ \ \ this.longitude[0]\ \=\ 0;\r\n\ \ \ \ \ \ \ this.longitude[1]\ \=\ 0;\r\n\ \ \ \ \ \ \ this.longitude[2]\ \=\ 0;\r\n\ \ \ \ \ \ \ this.latitude[0]\ \=\ 0;\r\n\ \ \ \ \ \ \ this.latitude[1]\ \=\ 0;\r\n\ \ \ \ \ \ \ this.latitude[2]\ \=\ 0;\r\n\ \ \ \ }\r\n
+comment10.params=degre\ min\ sec
+comment10.target=void\ setLatitudeDegSexa(int,\ int,\ int)
+comment11.params=
+comment11.target=int[]\ getLatitudeDegSexa()
+comment12.params=degre\ min\ sec
+comment12.target=void\ setLongitudeDegSexa(int,\ int,\ int)
+comment13.params=
+comment13.target=int[]\ getLongitudeDegSexa()
+comment14.params=
+comment14.target=java.lang.String\ ToString()
+comment15.params=y
+comment15.target=void\ sampleMethod(int)
+comment15.text=\r\n\ Un\ exemple\ de\ m\u00E9thode\ -\ remplacez\ ce\ commentaire\ par\ le\ v\u00F4tre\r\n\r\n\ @param\ \ y\ \ \ le\ param\u00E8tre\ de\ la\ m\u00E9thode\r\n\ @return\ \ \ \ \ la\ somme\ de\ x\ et\ de\ y\r\n
+comment2.params=latitude
+comment2.target=void\ setLatitudeDegDec(double)
+comment3.params=
+comment3.target=double\ getLatitudeDegDec()
+comment4.params=longitude
+comment4.target=void\ setLongitudeDegDec(double)
+comment5.params=
+comment5.target=double\ getLongitudeDegDec()
+comment6.params=latitude
+comment6.target=void\ setLatitudeRad(double)
+comment7.params=
+comment7.target=double\ getLatitudeRad()
+comment8.params=longitude
+comment8.target=void\ setLongitudeRag(double)
+comment9.params=
+comment9.target=double\ getLongitudeRad()
+numComments=16
