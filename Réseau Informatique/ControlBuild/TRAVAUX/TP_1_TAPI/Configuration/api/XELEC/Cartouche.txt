@@ -1,0 +1,5 @@
+localisa; ARMOIRE
+fonction; API
+nmser1; DMEI/AUT
+noaff1; SPIRALE_001
+titre1; Creation par SPIRALE

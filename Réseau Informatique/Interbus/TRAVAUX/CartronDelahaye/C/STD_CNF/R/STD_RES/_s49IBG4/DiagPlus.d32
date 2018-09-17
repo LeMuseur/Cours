@@ -1,0 +1,12 @@
+9     
+CONSEQ_NUM	LOGNUM_REM	LOGNUM_LOCAL	ID_CODE	PD_LENGTH	PA_LENGTH	PHYS_A1	PHYS_W1	PHYS_W2	DEV_NAME	STATION_NAME	VENDOR	GROUP	TYPE	ORDER_NR	PROFILE_NR	MAX_CURRENT	MAX_DEV	BMK	PLANT_BMK	LOC_BMK	CONSTRUCT_TYPE	CABLE_IDX	CABLE_LENGTH	CABLE_BMK	FDCML_FILE
+1	1	0	4	0	0	14	14	3			Phoenix Contact		IBS IL 24 RB-T	2727941										xxx	INTERBUS\Phoenix Contact\ibs_il_24_rb-tvxx.xml	
+2	2	0	4	0	0	3	14	3			Phoenix Contact		IBS IL 24 BK T/U	2742094										xxx	INTERBUS\Phoenix Contact\ibs_il_24_bk_t_uvxx.xml	
+3	2	1	127	32	0	14	0	14			Phoenix Contact		IB IL AI 2/SF	2726285										xxx	INTERBUS\Phoenix Contact\IB_IL_AI_2_SFvxx.xml	
+4	2	2	125	16	0	14	0	14			Phoenix Contact		IB IL AO 1/SF	2726298										xxx	INTERBUS\Phoenix Contact\IB_IL_AO_1_SFvxx.xml	
+5	2	3	191	32	0	14	0	14			Phoenix Contact		IB IL INC	2836324										xxx	INTERBUS\Phoenix Contact\IB_IL_INCvxx.xml	
+6	2	4	190	8	0	14	0	14			Phoenix Contact		IB IL 24 DI 8	2726227										xxx	INTERBUS\Phoenix Contact\IB_IL_24_DI_8vxx.xml	
+7	2	5	190	2	0	14	0	14			Phoenix Contact		IB IL 24 DI 2	2726201										xxx	INTERBUS\Phoenix Contact\IB_IL_24_DI_2vxx.xml	
+8	2	6	189	4	0	14	0	14			Phoenix Contact		IB IL 24 DO 4	2726256										xxx	INTERBUS\Phoenix Contact\IB_IL_24_DO_4vxx.xml	
+9	3	0	51	16	0	1	0	1			Universal		FG AIO 16b	Aucune donnée										xxx	INTERBUS\Universal\FG_AIO_16bvxx.xml	
+ETHERNET\Phoenix Contact\ilc_150_ethmce_dtmv01_3.90.xml

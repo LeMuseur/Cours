@@ -1,0 +1,15 @@
+// Compare dates and time 
+
+      O(    ; 
+      L     $1; 
+      L     $3; 
+      <>D   ; 
+
+      )     ; 
+      O(    ; 
+      L     $2; 
+      L     $4; 
+      <>D   ; 
+      )     ; 
+      =     $5; 
+

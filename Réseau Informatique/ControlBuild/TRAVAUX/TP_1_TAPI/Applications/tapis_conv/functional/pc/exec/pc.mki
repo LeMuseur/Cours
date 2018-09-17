@@ -1,0 +1,76 @@
+
+### User options :
+#options de compilation et d'edition de lien :
+_CC_OPTS=-DSY_MSW -DWIN32 -DGCC -o $@
+_CPP_OPTS=$(_CINCL)
+
+_LD_LIBS=-Xlinker -no-whole-archive -lcygwin -lkernel32
+_LD_OPTS=-Xlinker -whole-archive
+
+#edition de liens :
+_LD1=gcc -o $@ $(_LD_OPTS)
+_LD2=$(_LD_LIBS)
+#edition de liens intermediaire :
+_LDI1=ar -ruv $@
+_LDI2=
+_AR=ar
+#compilation :
+_CC1=cd $(@D);gcc -c -I.. $(_CPP_OPTS) $(_CC_OPTS)
+_CC2=
+
+
+
+### Categories definition :
+pc_c=//P/RI/TP_1_TAPI/Applications/tapis_conv/functional/pc/exec
+pc_o=$(pc_c)/$(TOOL_MACH)
+graf_c=//P/RI/TP_1_TAPI/Applications/tapis_conv/functional/graf/exec
+graf_o=$(graf_c)/$(TOOL_MACH)
+_simu_c=//C/controlbuild/tooldir/embedded/nt_simu/embedded
+_simu_o=$(_simu_c)/$(TOOL_MACH)
+
+### Directories for the search of includes :
+_CINCL=-I//C/controlbuild/tooldir -I//C/controlbuild/tooldir/embedded/nt_simu/embedded  -I//P/RI/TP_1_TAPI/Applications/tapis_conv/functional/pc/exec -I//P/RI/TP_1_TAPI/Applications -I//P/RI/TP_1_TAPI/Specific -I//P/RI/TP_1_TAPI/Standard
+
+### Link rules :
+cible : $(pc_o) $(graf_o) $(pc_o)/pc.exe
+	@echo "Compilation Ok"
+
+$(pc_o)/_pc_1.a : $(pc_c)/pc.mki $(pc_o)/pc.o $(graf_o)/graf.o $(pc_o)/_init.o 
+	rm -f $@ 
+	$(_LDI1) $(pc_o)/pc.o $(graf_o)/graf.o $(pc_o)/_init.o $(_LDI2)
+	$(_AR) s $@
+
+$(pc_o)/pc.exe : $(pc_o)/_pc_1.a $(_simu_o)/cb_main.o $(_simu_o)/cb_memory.o $(_simu_o)/cb_hook.o $(_simu_o)/cb_io.o $(_simu_o)/cb_products.o $(_simu_o)/iec_1131.o 
+	@echo "unsigned int getSignature(void) { return " > $(pc_c)/_sign.c
+	@cat //P/RI/TP_1_TAPI/Applications/tapis_conv/functional/pc/exec/_sign.txt >> $(pc_c)/_sign.c
+	@echo "u; }" >> $(pc_c)/_sign.c
+	@echo "int getGenerationTime(void) { return " >> $(pc_c)/_sign.c
+	@cat //P/RI/TP_1_TAPI/Applications/tapis_conv/functional/pc/exec/obj/_time.txt >> $(pc_c)/_sign.c
+	@echo "; }" >> $(pc_c)/_sign.c
+	gcc -c $(pc_c)/_sign.c -o $(pc_o)/_sign.o
+	$(_LD1) $(pc_o)/_pc_1.a $(_simu_o)/cb_main.o $(_simu_o)/cb_memory.o $(_simu_o)/cb_hook.o $(_simu_o)/cb_io.o $(_simu_o)/cb_products.o $(_simu_o)/iec_1131.o $(pc_o)/_sign.o $(_LD2)
+	@echo "New Signature"
+
+### Directories making for .o files :
+$(pc_o) :
+	@mkdir $@
+$(graf_o) :
+	@mkdir $@
+
+### Compilation rules :
+$(pc_o)/pc.o : $(pc_c)/pc.c $(pc_c)/pc.h
+	$(_CC1) $(pc_c)/pc.c
+	$(_CC2)
+$(graf_o)/graf.o : $(graf_c)/graf.c $(graf_c)/graf.h
+	$(_CC1) $(graf_c)/graf.c
+	$(_CC2)
+$(pc_o)/_init.o : $(pc_c)/_init.c $(pc_c)/_init.h
+	$(_CC1) $(pc_c)/_init.c
+	$(_CC2)
+
+### Compilation rules for externals functions :
+$(_simu_o)/iec_1131.o : $(_simu_c)/iec_1131.c $(_simu_c)/iec_1131.h
+	$(_CC1) $(_simu_c)/iec_1131.c
+	$(_CC2)
+
+### Compilation rules for externals fbs :

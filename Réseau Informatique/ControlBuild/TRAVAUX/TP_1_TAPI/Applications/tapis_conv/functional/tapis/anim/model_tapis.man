@@ -1,0 +1,16 @@
+UTF8#1 13 animax MaxSim120 13 
+
+1 1 6 2 9 10 11 12 13 11 model_tapis0 0 
+2 2 2 3 5 2 7 8 14 representation0 0 1000 1000 
+3 4 5 Tapis1 4 162 442 1244 492 0 
+4 9 0 162 442 1244 492 1 0 255 
+5 4 5 Piece1 6 714 372 828 442 0 
+6 11 0 714 372 828 442 1 0 12632256 11 714 372 828 372 828 410 798 410 826 438 826 442 746 442 746 436 772 410 714 382 714 374 
+7 3 0 46 if Marche = true then Tapis  blink(red orange)
+8 3 0 56 if Marche = true then Piece 130 + (Deplacement * 20)@372
+9 2 0 0 14 representation0 0 1000 1000 
+10 2 0 0 14 representation0 0 1000 1000 
+11 2 0 0 14 representation0 0 1000 1000 
+12 2 0 0 14 representation0 0 1000 1000 
+13 2 0 0 14 representation0 0 1000 1000 
+°ë¦x

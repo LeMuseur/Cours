@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Generator: controlbuild -->
+
+<project xmlns="http://www.plcopen.org/xml/tc6.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.plcopen.org/xml/tc6.xsd TC6_XML_V099_TNI.xsd">
+	<fileHeader companyName="TNI-Software" productName="ControlBuild" productVersion="4.00" creationDateTime="2018-09-17T17:25:09-01:00" />
+	<contentHeader name="po">
+		<coordinateInfo>
+			<fbd>
+				<scaling x="100" y="100" />
+			</fbd>
+			<ld>
+				<scaling x="100" y="100" />
+			</ld>
+			<sfc>
+				<scaling x="32" y="8" />
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes />
+		<pous>
+			<pou name="tapis_conv.po" pouType="program">
+				<interface>
+					<inputVars>
+						<variable name="Marche">
+							<type>
+								<BOOL />
+							</type>
+							<initialValue>
+								<simpleValue value="false" />
+							</initialValue>
+						</variable>
+						<documentation>CB.group=Commande_PO
+CB.kind=inputVars</documentation>
+					</inputVars>
+					<inputVars>
+						<variable name="Chargement">
+							<type>
+								<BOOL />
+							</type>
+							<initialValue>
+								<simpleValue value="false" />
+							</initialValue>
+						</variable>
+						<variable name="Dechargement">
+							<type>
+								<BOOL />
+							</type>
+							<initialValue>
+								<simpleValue value="false" />
+							</initialValue>
+						</variable>
+						<documentation>CB.group=Retour_Utilisateur
+CB.kind=inputVars</documentation>
+					</inputVars>
+					<outputVars>
+						<variable name="Fin_Convoyage">
+							<type>
+								<BOOL />
+							</type>
+							<initialValue>
+								<simpleValue value="false" />
+							</initialValue>
+						</variable>
+						<documentation>CB.group=Retour_PO
+CB.kind=outputVars</documentation>
+					</outputVars>
+				</interface>
+				<actions>
+				</actions>
+				<body>
+					<FBD>
+						<inVariable localId="0">
+							<position x="248" y="240" />
+							<expression>Marche</expression>
+							<documentation>CB.group=Commande_PO</documentation>
+						</inVariable>
+						<inVariable localId="1">
+							<position x="248" y="336" />
+							<expression>Chargement</expression>
+							<documentation>CB.group=Retour_Utilisateur</documentation>
+						</inVariable>
+						<inVariable localId="2">
+							<position x="248" y="360" />
+							<expression>Dechargement</expression>
+							<documentation>CB.group=Retour_Utilisateur</documentation>
+						</inVariable>
+						<outVariable localId="3">
+							<position x="936" y="240" />
+							<connectionPointIn>
+								<connection refLocalId="4" formalParameter="Etat" />
+							</connectionPointIn>
+							<expression>Fin_Convoyage</expression>
+						</outVariable>
+						<block localId="5" width="288" height="72" typeName="tapis_conv.tapis" instanceName="tapis1">
+							<position x="312" y="192" />
+							<inputVariables>
+								<variable formalParameter="Marche">
+									<connectionPointIn>
+										<connection refLocalId="0" />
+									</connectionPointIn>
+								</variable>
+							</inputVariables>
+							<inOutVariables>
+							</inOutVariables>
+							<outputVariables>
+							</outputVariables>
+						</block>
+						<block localId="6" width="288" height="96" typeName="tapis_conv.stockage" instanceName="stockage1">
+							<position x="312" y="288" />
+							<inputVariables>
+								<variable formalParameter="In">
+									<connectionPointIn>
+										<connection refLocalId="1" />
+									</connectionPointIn>
+								</variable>
+								<variable formalParameter="Out">
+									<connectionPointIn>
+										<connection refLocalId="2" />
+									</connectionPointIn>
+								</variable>
+							</inputVariables>
+							<inOutVariables>
+							</inOutVariables>
+							<outputVariables>
+							</outputVariables>
+						</block>
+						<block localId="4" width="288" height="96" typeName="tapis_conv.capteur_tor" instanceName="capteur_tor1">
+							<position x="624" y="192" />
+							<inputVariables>
+								<variable formalParameter="Position_IN">
+									<connectionPointIn>
+										<connection refLocalId="5" formalParameter="Deplacement" />
+									</connectionPointIn>
+								</variable>
+							</inputVariables>
+							<inOutVariables>
+							</inOutVariables>
+							<outputVariables>
+							</outputVariables>
+						</block>
+					</FBD>
+				</body>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations />
+	</instances>
+</project>

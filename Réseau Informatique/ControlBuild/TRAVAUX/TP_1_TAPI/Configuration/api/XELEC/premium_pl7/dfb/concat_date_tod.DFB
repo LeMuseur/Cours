@@ -1,0 +1,25 @@
+[SOURCE_UNIT]
+SU_TYPE = F_B
+NAME = 'DEFAULT'
+VERSION = '00.14'
+DATE = DATE_AND_TIME #2003-09-30-08:54:52
+LANGUAGE = ST
+BODY = 
+(*Auteur : TNI-Software*)
+FUNCTION_BLOCK Concat_date_tod
+VAR_INPUT
+En : BOOL (*Reserved*) := TRUE;
+Nbdays0 : DWORD := 0;
+Time1 : DWORD := 0;
+END_VAR
+VAR_OUTPUT
+Out0 : AR_D : 2 := ( 0, 
+0 ) ;
+END_VAR
+(*PHRASE*)
+(* concatenates date and time *)
+Out0[0] := Nbdays0 ;
+Out0[1] := Time1;
+
+(*END_PHRASE*)
+END_FUNCTION_BLOCK

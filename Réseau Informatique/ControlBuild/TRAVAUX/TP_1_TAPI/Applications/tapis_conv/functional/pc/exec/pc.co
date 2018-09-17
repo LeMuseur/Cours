@@ -1,0 +1,5 @@
+ Fin_Convoyage IB1
+ Chargement IB2
+ Dechargement IB3
+ Marche OB4
+<tapis_conv:graf graf1/ 1 Fin_Convoyage 1 Chargement 2 Dechargement 3 Marche 4>

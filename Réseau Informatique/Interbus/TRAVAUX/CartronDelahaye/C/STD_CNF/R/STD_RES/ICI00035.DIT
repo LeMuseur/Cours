@@ -1,0 +1,82 @@
+(*
+T: PROGRAM Main
+FW: NO
+CI#: 35
+QSL: 12
+QVE: 12
+QVPC: 12
+QPar: 0
+QFBI: 1
+*)
+@V 1 6 0
+Impulsion	1	VAR	@FB:36
+		     
+
+;
+
+@V 1 11 0
+Start	2	VAR_EXTERNAL_PG	@TYP:1
+@RV 1		     
+
+;
+
+@V 1 16 0
+Duree	3	VAR	@TYP:12
+		     
+@TYP:12# 5S0
+;
+
+@V 1 21 0
+Impulsion_Sortie	4	VAR_EXTERNAL_PG	@TYP:1
+@RV 2		     
+
+;
+
+@V 1 26 0
+Temps_ecoule	5	VAR	@TYP:12
+		     
+
+;
+
+@V 1 27 0
+V000	6	VAR	@TYP:12
+		     
+
+;
+
+@V 1 28 0
+V001	7	VAR	@TYP:4
+		     
+
+;
+
+@V 1 29 0
+V002	8	VAR	@TYP:4
+		     
+
+;
+
+@V 1 30 0
+V003	9	VAR	@TYP:4
+		     
+
+;
+
+@V 1 31 0
+x10	10	VAR	@TYP:4
+		     
+@TYP:4# 00#0000000a
+;
+
+@V 1 32 0
+V004	11	VAR	@TYP:4
+		     
+
+;
+
+@V 1 37 0
+Sortie_moteur	12	VAR_EXTERNAL_PG	@TYP:18
+@RV 3		     
+
+;
+

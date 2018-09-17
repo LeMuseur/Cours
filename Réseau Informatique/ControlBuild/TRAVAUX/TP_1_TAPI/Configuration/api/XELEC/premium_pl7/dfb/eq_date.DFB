@@ -1,0 +1,23 @@
+[SOURCE_UNIT]
+SU_TYPE = F_B
+NAME = 'DEFAULT'
+VERSION = '00.25'
+DATE = DATE_AND_TIME #2004-02-03-15:14:36
+LANGUAGE = ST
+BODY = 
+(*Auteur : TNI-Software*)
+FUNCTION_BLOCK Eq_date
+VAR_INPUT
+En : BOOL (*Reserved*) := TRUE;
+Nbdays0 : DWORD := 0;
+Nbdays1 : DWORD := 0;
+END_VAR
+VAR_OUTPUT
+Out0 : BOOL := FALSE;
+END_VAR
+(*PHRASE*)
+(* compare dates  *)
+Out0 := (Nbdays0 = Nbdays1);
+
+(*END_PHRASE*)
+END_FUNCTION_BLOCK

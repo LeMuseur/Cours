@@ -1,0 +1,25 @@
+[SOURCE_UNIT]
+SU_TYPE = F_B
+NAME = 'DEFAULT'
+VERSION = '00.23'
+DATE = DATE_AND_TIME #2004-02-09-14:51:55
+LANGUAGE = ST
+BODY = 
+(*Auteur : TNI-Software*)
+FUNCTION_BLOCK Ge_time
+VAR_INPUT
+En : BOOL (*Reserved*) := TRUE;
+Nbdays0 : DWORD := 0;
+Time0 : DWORD := 0;
+Nbdays1 : DWORD := 0;
+Time1 : DWORD := 0;
+END_VAR
+VAR_OUTPUT
+Out0 : BOOL := FALSE;
+END_VAR
+(*PHRASE*)
+(* compare duration  *)
+Out0 := (Nbdays0 > Nbdays1) OR ((Nbdays0 = Nbdays1) AND (Time0 >= Time1));
+ 
+(*END_PHRASE*)
+END_FUNCTION_BLOCK

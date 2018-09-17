@@ -1,0 +1,11 @@
+(* sum of date_and_time with time  *)
+tmpDINT := $2 + $4;
+IF tmpDINT >= 864000000 THEN
+    $6 := tmpDINT - 864000000;
+    tmpINT := 1;
+ELSE
+    $6 := tmpDINT;
+    tmpINT := 0;
+END_IF;
+$5 := $1 +$3 + tmpINT;
+

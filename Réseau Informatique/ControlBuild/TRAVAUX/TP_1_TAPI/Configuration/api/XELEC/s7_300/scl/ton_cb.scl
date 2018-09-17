@@ -1,0 +1,61 @@
+FUNCTION ton_CB: VOID
+AUTHOR : tni
+VAR_INPUT
+        IN : BOOL;          // Armement tempo
+        PT_1 : DINT;        // Poid fort preset
+        PT_2 : DINT;        // Poid faible preset
+END_VAR
+
+VAR_IN_OUT
+        t1_1 : DINT;        
+        t1_2 : DINT;        // memoire front tempo
+        tn : DINT;          // Memo tick
+        q : BOOL;           // Fin tempo
+        cv_1 : DINT;        // Poid fort valeur courante tempo
+        cv_2 : DINT;        // Poid faible valeur courante tempo
+END_VAR
+
+VAR_TEMP
+        tick : DINT;
+        delta : DINT;
+END_VAR    
+
+BEGIN
+
+IF (IN) AND ((cv_1 < PT_1) OR (cv_2 < PT_2)) THEN
+    tick := TIME_TO_DINT(TIME_TCK ());      // Récupération tick horloge API
+
+    IF (t1_2 = 0) THEN                      // Si front montant armement
+        tn:= tick;                          // init Memoire tick
+        t1_2 :=1;
+    ELSE
+        IF (tick >= tn) THEN                 // Calcul du nombre ms écoulée
+            delta := tick - tn ;
+        ELSE
+            delta := (tick + 2147483647) - tn;
+        END_IF;
+        tn := tick;                         // Mémorisation du nombre de tick pour cycle suivant
+    
+        cv_2 := cv_2 + (delta * 10);                 // incrementation de la valeur courante
+        IF (cv_2 >= 864000000) THEN
+            cv_1 := cv_1 + 1;               // Incrmentation du nombre de jour 
+            cv_2 := cv_2 - 864000000;
+        END_IF;    
+    END_IF;
+END_IF;
+
+IF (NOT IN) THEN
+    cv_1 := 0;                          // Raz tempo si pas armement
+    cv_2 := 0;
+    tn := 0;
+    t1_2 := 0;
+END_IF;    
+
+IF ((cv_1 >= PT_1) AND (cv_2 > PT_2)) THEN        // Si dépassement preset, recalage de la valeur courante
+    cv_1 := PT_1;
+    cv_2 := PT_2;
+END_IF;
+
+q := IN AND ((cv_1 >= PT_1) AND (cv_2 = PT_2));          // Calcul de la sortie tempo
+
+END_FUNCTION

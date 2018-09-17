@@ -1,0 +1,24 @@
+[SOURCE_UNIT]
+SU_TYPE = F_B
+NAME = 'DEFAULT'
+VERSION = '00.18'
+DATE = DATE_AND_TIME #2004-02-09-16:57:31
+LANGUAGE = ST
+BODY = 
+(*Auteur : TNI-Software*)
+FUNCTION_BLOCK Dt__date
+VAR_INPUT
+En : BOOL (*Reserved*) := TRUE;
+Nbdays0 : DWORD := 0;
+Time0 : DWORD := 0;
+END_VAR
+VAR_OUTPUT
+Out0 : AR_D : 1 := ( 0 ) ;
+END_VAR
+(*PHRASE*)
+(* Copy nb  of days  *)
+Out0[0] := Nbdays0 ;
+ 
+(*END_PHRASE*)
+END_FUNCTION_BLOCK
+

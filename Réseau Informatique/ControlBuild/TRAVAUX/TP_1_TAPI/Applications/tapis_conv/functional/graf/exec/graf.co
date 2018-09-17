@@ -1,0 +1,9 @@
+ Fin_Convoyage IB1
+ Chargement IB2
+ Dechargement IB3
+ Marche OB4
+ nb_piece LI5
+ _X_10 LB6
+ _X_11 LB7
+ _X_20 LB8
+ _X_21 LB9

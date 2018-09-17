@@ -1,0 +1,22 @@
+// difference between tod and times
+
+      L     $1; 
+      L     $3; 
+      -D    ; 
+      T     $4; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      L     $4; 
+      L     L#0; 
+      <D    ; 
+      )     ; 
+      JNB   _1$5; 
+      L     $4; 
+      L     L#864000000; 
+      +D    ; 
+      T     $4; 
+_1$5: NOP   0; 
+

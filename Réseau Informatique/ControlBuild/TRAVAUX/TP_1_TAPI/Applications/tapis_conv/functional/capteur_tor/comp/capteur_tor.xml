@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Generator: controlbuild -->
+
+<project xmlns="http://www.plcopen.org/xml/tc6.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.plcopen.org/xml/tc6.xsd TC6_XML_V099_TNI.xsd">
+	<fileHeader companyName="TNI-Software" productName="ControlBuild" productVersion="4.00" creationDateTime="2018-09-17T17:24:47-01:00" />
+	<contentHeader name="capteur_tor">
+		<coordinateInfo>
+			<fbd>
+				<scaling x="100" y="100" />
+			</fbd>
+			<ld>
+				<scaling x="100" y="100" />
+			</ld>
+			<sfc>
+				<scaling x="32" y="8" />
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes />
+		<pous>
+			<pou name="tapis_conv.capteur_tor" pouType="functionBlock">
+				<interface>
+					<inputVars>
+						<variable name="Position_IN">
+							<type>
+								<REAL />
+							</type>
+							<initialValue>
+								<simpleValue value="0.0" />
+							</initialValue>
+						</variable>
+						<variable name="Position_Fixe">
+							<type>
+								<REAL />
+							</type>
+							<initialValue>
+								<simpleValue value="0.0" />
+							</initialValue>
+						</variable>
+						<documentation>CB.kind=inputVars</documentation>
+					</inputVars>
+					<outputVars>
+						<variable name="Etat">
+							<type>
+								<BOOL />
+							</type>
+							<initialValue>
+								<simpleValue value="false" />
+							</initialValue>
+						</variable>
+						<documentation>CB.kind=outputVars</documentation>
+					</outputVars>
+					<localVars constant="true">
+						<variable name="Fourchette">
+							<type>
+								<REAL />
+							</type>
+							<initialValue>
+								<simpleValue value="0.1" />
+							</initialValue>
+						</variable>
+						<documentation>CB.kind=parameterVars</documentation>
+					</localVars>
+				</interface>
+				<actions>
+				</actions>
+				<body>
+					<ST>if Position_IN&gt;(Position_Fixe-Fourchette) and Position_IN&lt;(Position_Fixe+Fourchette)
+then
+	Etat:=true;
+else 
+	Etat:=false;
+end_if;</ST>
+				</body>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations />
+	</instances>
+</project>

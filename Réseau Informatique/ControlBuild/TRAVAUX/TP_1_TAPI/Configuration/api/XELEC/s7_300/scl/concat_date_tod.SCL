@@ -1,0 +1,4 @@
+(* Concatenates date and time *)
+$3 := $1;
+$4 := $2;
+

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="PROPERTIES_FILE">
+		<xs:annotation>
+			<xs:documentation>File which contains properties for ControlBuild variables</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="ENUM"></xs:element>
+				<xs:element maxOccurs="unbounded" ref="PROPERTIES_SET"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ENUM">
+		<xs:annotation>
+			<xs:documentation>Declaration of an enumerated type</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="ITEM"></xs:element>
+			</xs:sequence>
+			<xs:attribute name="NAME" type="xs:string" use="required"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ITEM" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>An item of an enumeration</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="PROPERTIES_SET">
+		<xs:annotation>
+			<xs:documentation>A set of properties</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" ref="LANGUAGES"></xs:element>
+				<xs:element maxOccurs="unbounded" ref="PROPERTY"></xs:element>
+			</xs:sequence>
+			<xs:attribute name="NAME" type="xs:string" use="optional"></xs:attribute>
+			<xs:attribute name="IF" type="xs:string" use="optional"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LANGUAGES">
+		<xs:annotation>
+			<xs:documentation>Contains the labels depending on the language of ControlBuild</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="LANGUAGE"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LANGUAGE">
+		<xs:annotation>
+			<xs:documentation>Contains the label for one language</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="NAME" type="xs:string"></xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PROPERTY">
+		<xs:annotation>
+			<xs:documentation>Definition of a property</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" ref="LANGUAGES"></xs:element>
+				<xs:element minOccurs="0" ref="PROPERTIES_SET"></xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="APPLIED_TO"></xs:element>
+			</xs:sequence>
+			<xs:attribute name="NAME" type="xs:string" use="required"></xs:attribute>
+			<xs:attribute name="TYPE" type="xs:string" use="required"></xs:attribute>
+			<xs:attribute name="EDITIONMODE" type="xs:NMTOKEN" use="optional"></xs:attribute>
+			<xs:attribute name="DEFAULT" type="xs:string" use="optional"></xs:attribute>
+			<xs:attribute name="MINLENGTH" type="xs:unsignedInt" use="optional"></xs:attribute>
+			<xs:attribute name="MAXLENGTH" type="xs:unsignedInt" use="optional"></xs:attribute>
+			<xs:attribute name="LOWERBOUND" type="xs:string" use="optional"></xs:attribute>
+			<xs:attribute name="UPPERBOUND" type="xs:string" use="optional"></xs:attribute>
+			<xs:attribute name="SIZE" type="xs:unsignedInt" use="optional"></xs:attribute>
+			<xs:attribute name="IF" type="xs:string" use="optional"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="APPLIED_TO">
+		<xs:annotation>
+			<xs:documentation>Declaration of a class on which the property is available</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="CLASS" type="xs:string" use="required"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

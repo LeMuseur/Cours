@@ -1,0 +1,3 @@
+(* Copy time of the date_and_time *)
+$3 := $2;
+

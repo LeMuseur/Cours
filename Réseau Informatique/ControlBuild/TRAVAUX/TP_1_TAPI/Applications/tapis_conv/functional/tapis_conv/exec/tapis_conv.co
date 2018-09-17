@@ -1,0 +1,6 @@
+ ~ LB1
+ ~ LB2
+ ~ LB3
+ ~ LB4
+<tapis_conv:po po1/ 1>
+<tapis_conv:pc pc1/ 1 Fin_Convoyage 4 Chargement 3 Dechargement 2 Marche 1>

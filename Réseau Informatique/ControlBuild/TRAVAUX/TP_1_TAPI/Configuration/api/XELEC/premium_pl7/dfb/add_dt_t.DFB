@@ -1,0 +1,40 @@
+[SOURCE_UNIT]
+SU_TYPE = F_B
+NAME = 'DEFAULT'
+VERSION = '00.11'
+DATE = DATE_AND_TIME #2003-09-29-14:24:11
+LANGUAGE = ST
+BODY = 
+(*Auteur : TNI-Software*)
+FUNCTION_BLOCK Add_dt_t
+VAR_INPUT
+En : BOOL (*Reserved*) := TRUE;
+Nbdays0 : DWORD := 0;
+Time0 : DWORD := 0;
+Nbdays1 : DWORD := 0;
+Time1 : DWORD := 0;
+END_VAR
+VAR_OUTPUT
+Out0 : AR_D : 2 := ( 0, 
+0 ) ;
+END_VAR
+VAR
+Inter : DWORD := 0;
+Mem : WORD := 0;
+END_VAR
+(*PHRASE*)
+(* sum of ms  *)
+Inter :=Time0 + Time1;
+IF Inter >= 864000000 THEN 
+	Out0[1] := Inter-864000000;
+	Mem := 1;
+ELSE
+	Out0[1] := Inter;
+	Mem :=0;
+END_IF;
+
+(* sum of days  *)
+Out0[0] := Nbdays0 + Nbdays1 + Mem;
+
+(*END_PHRASE*)
+END_FUNCTION_BLOCK

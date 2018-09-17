@@ -1,0 +1,10 @@
+ Marche IB1
+ Chargement IB2
+ Dechargement IB3
+ Fin_Convoyage OB4
+ ~ LF5
+ ~ LI6
+ ~ LF7
+<tapis_conv:tapis tapis1/ 1 Marche 1 Deplacement 7>
+<tapis_conv:stockage stockage1/ 1 In 2 Out 3 Nb_Pieces 6>
+<tapis_conv:capteur_tor capteur_tor1/ 1 Position_IN 7 Position_Fixe 5 Etat 4>

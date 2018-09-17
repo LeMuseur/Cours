@@ -1,0 +1,32 @@
+[SOURCE_UNIT]
+SU_TYPE = F_B
+NAME = 'DEFAULT'
+VERSION = '00.14'
+DATE = DATE_AND_TIME #2003-09-29-14:37:29
+LANGUAGE = ST
+BODY = 
+(*Auteur : TNI-Software*)
+FUNCTION_BLOCK Add_tod_t
+VAR_INPUT
+En : BOOL (*Reserved*) := TRUE;
+Time0 : DWORD := 0;
+Nbdays1 : DWORD := 0;
+Time1 : DWORD := 0;
+END_VAR
+VAR_OUTPUT
+Out0 : AR_D : 1 := ( 0 ) ;
+END_VAR
+VAR
+Inter : DWORD := 0;
+END_VAR
+(*PHRASE*)
+(* sum of ms  *)
+Inter :=Time0 + Time1;
+IF Inter >= 864000000 THEN 
+	Out0[0] := Inter-864000000;
+ELSE
+	Out0[0] := Inter;
+END_IF;
+
+(*END_PHRASE*)
+END_FUNCTION_BLOCK

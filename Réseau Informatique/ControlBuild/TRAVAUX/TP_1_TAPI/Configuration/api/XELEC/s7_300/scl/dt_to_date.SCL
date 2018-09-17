@@ -1,0 +1,3 @@
+(* Copy nb of days *)
+$3 := $1;
+

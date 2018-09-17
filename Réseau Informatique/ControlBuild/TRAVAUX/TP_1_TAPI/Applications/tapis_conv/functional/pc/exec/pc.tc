@@ -1,0 +1,11 @@
+T_ElementTableActeursProduits TableActeursProduits[] = {
+	{{0, 0, 0, 0}, {0, 0, 0, 0},
+	0, 0, 0, 0, {{0, 0}, {0, 0}}}
+};
+T_Instance NbActeurs = 0;
+T_Instance NbProduits = 0;
+T_Instance NbActeursEtProduits = 0;
+
+void globalesInit()
+{
+}

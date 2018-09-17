@@ -1,0 +1,28 @@
+UTF8#1 11 TNI Sos mac120 25 
+
+1 3 1 2 11 capteur_tor3 0 0 0 0 0 
+2 73 18 IdentifierProperty1 36 e0b50ff2-c3c8-414c-bf23-3e6bebd9ee0b0 
+3 5 3 4 5 6 0 0 11 capteur_tor1 1 7 7 14 18 19 23 24 25 0 0 10 10 0 0 1 n 0 0 0 
+4 73 14 sdPropertyName1 10 15371978870 
+5 73 18 IdentifierProperty1 36 4da97395-ea13-44f4-a59d-a373dfbf551c0 
+6 73 15 dlcPropertyName1 1 00 
+7 7 0 0 1 3 0 2 8 11 1 0 0 
+8 8 1 9 7 0 11 Position_IN1 3 7 10 0 0 
+9 73 18 IdentifierProperty1 36 f627f159-bd02-44ff-afca-4b744816a9790 
+10 25 17 0 0 
+11 8 1 12 7 0 13 Position_Fixe1 3 7 13 0 0 
+12 73 18 IdentifierProperty1 36 71b4e395-0b5e-410a-91e9-e2460edc55720 
+13 25 18 0 0 
+14 7 0 0 2 3 0 1 15 1 0 0 
+15 8 1 16 14 0 4 Etat2 3 14 17 0 0 
+16 73 18 IdentifierProperty1 36 ad76db33-b30a-4493-8dfe-2004c6e55aee0 
+17 21 5 0 0 
+18 7 0 0 3 3 0 0 1 0 0 
+19 7 0 0 4 3 0 1 20 1 0 0 
+20 8 1 21 19 0 10 Fourchette4 3 19 22 0 0 
+21 73 18 IdentifierProperty1 36 48353240-f3a5-4aff-9096-3825f76d48620 
+22 25 19 0 0.1 
+23 7 0 0 5 3 0 0 1 0 0 
+24 7 0 0 6 3 0 0 1 0 0 
+25 7 0 0 7 3 0 0 1 0 0 
+çB’

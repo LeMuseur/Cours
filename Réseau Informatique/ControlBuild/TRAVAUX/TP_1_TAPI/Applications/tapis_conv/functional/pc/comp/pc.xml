@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Generator: controlbuild -->
+
+<project xmlns="http://www.plcopen.org/xml/tc6.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.plcopen.org/xml/tc6.xsd TC6_XML_V099_TNI.xsd">
+	<fileHeader companyName="TNI-Software" productName="ControlBuild" productVersion="4.00" creationDateTime="2018-09-17T17:24:47-01:00" />
+	<contentHeader name="pc">
+		<coordinateInfo>
+			<fbd>
+				<scaling x="100" y="100" />
+			</fbd>
+			<ld>
+				<scaling x="100" y="100" />
+			</ld>
+			<sfc>
+				<scaling x="32" y="8" />
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes />
+		<pous>
+			<pou name="tapis_conv.pc" pouType="program">
+				<interface>
+					<inputVars>
+						<variable name="Fin_Convoyage">
+							<type>
+								<BOOL />
+							</type>
+							<initialValue>
+								<simpleValue value="false" />
+							</initialValue>
+						</variable>
+						<documentation>CB.group=Retour_PO
+CB.kind=inputVars</documentation>
+					</inputVars>
+					<inputVars>
+						<variable name="Chargement">
+							<type>
+								<BOOL />
+							</type>
+							<initialValue>
+								<simpleValue value="false" />
+							</initialValue>
+						</variable>
+						<variable name="Dechargement">
+							<type>
+								<BOOL />
+							</type>
+							<initialValue>
+								<simpleValue value="false" />
+							</initialValue>
+						</variable>
+						<documentation>CB.group=Retour_Utilisateur
+CB.kind=inputVars</documentation>
+					</inputVars>
+					<outputVars>
+						<variable name="Marche">
+							<type>
+								<BOOL />
+							</type>
+							<initialValue>
+								<simpleValue value="false" />
+							</initialValue>
+						</variable>
+						<documentation>CB.group=Commande_PO
+CB.kind=outputVars</documentation>
+					</outputVars>
+				</interface>
+				<actions>
+				</actions>
+				<body>
+					<FBD>
+						<inVariable localId="0">
+							<position x="216" y="168" />
+							<expression>Fin_Convoyage</expression>
+							<documentation>CB.group=Retour_PO</documentation>
+						</inVariable>
+						<inVariable localId="1">
+							<position x="216" y="192" />
+							<expression>Chargement</expression>
+							<documentation>CB.group=Retour_Utilisateur</documentation>
+						</inVariable>
+						<inVariable localId="2">
+							<position x="216" y="192" />
+							<expression>Dechargement</expression>
+							<documentation>CB.group=Retour_Utilisateur</documentation>
+						</inVariable>
+						<outVariable localId="3">
+							<position x="792" y="168" />
+							<connectionPointIn>
+								<connection refLocalId="4" formalParameter="Marche" />
+							</connectionPointIn>
+							<expression>Marche</expression>
+							<documentation>CB.group=Commande_PO
+CB.connectionIn=4.Commande_PO,Commande_PO</documentation>
+						</outVariable>
+						<block localId="4" width="427" height="200" typeName="tapis_conv.graf" instanceName="graf1">
+							<position x="288" y="120" />
+							<inputVariables>
+								<variable formalParameter="Fin_Convoyage">
+									<connectionPointIn>
+										<connection refLocalId="0" />
+									</connectionPointIn>
+								</variable>
+								<variable formalParameter="Chargement">
+									<connectionPointIn>
+										<connection refLocalId="1" />
+									</connectionPointIn>
+								</variable>
+								<variable formalParameter="Dechargement">
+									<connectionPointIn>
+										<connection refLocalId="2" />
+									</connectionPointIn>
+								</variable>
+							</inputVariables>
+							<inOutVariables>
+							</inOutVariables>
+							<outputVariables>
+							</outputVariables>
+							<documentation>CB.connectionIn=Retour_Utilisateur,Retour_Utilisateur,Retour_PO,Retour_PO</documentation>
+						</block>
+					</FBD>
+				</body>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations />
+	</instances>
+</project>

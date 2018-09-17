@@ -1,0 +1,69 @@
+
+### User options :
+#options de compilation et d'edition de lien :
+_CC_OPTS=-DSY_MSW -DWIN32 -DGCC -o $@
+_CPP_OPTS=$(_CINCL)
+
+_LD_LIBS=-Xlinker -no-whole-archive -lcygwin -lkernel32
+_LD_OPTS=-Xlinker -whole-archive
+
+#edition de liens :
+_LD1=gcc -o $@ $(_LD_OPTS)
+_LD2=$(_LD_LIBS)
+#edition de liens intermediaire :
+_LDI1=ar -ruv $@
+_LDI2=
+_AR=ar
+#compilation :
+_CC1=cd $(@D);gcc -c -I.. $(_CPP_OPTS) $(_CC_OPTS)
+_CC2=
+
+
+
+### Categories definition :
+tapis_c=//C/temp/TP_1_TAPI/Applications/tapis_conv/functional/tapis/exec
+tapis_o=$(tapis_c)/$(TOOL_MACH)
+_simu_c=//C/controlbuild/tooldir/embedded/nt_simu/embedded
+_simu_o=$(_simu_c)/$(TOOL_MACH)
+
+### Directories for the search of includes :
+_CINCL=-I//C/controlbuild/tooldir -I//C/controlbuild/tooldir/embedded/nt_simu/embedded  -I//C/temp/TP_1_TAPI/Applications/tapis_conv/functional/tapis/exec -I//C/temp/TP_1_TAPI/Applications -I//C/temp/TP_1_TAPI/Specific -I//C/temp/TP_1_TAPI/Standard
+
+### Link rules :
+cible : $(tapis_o) $(tapis_o)/tapis.exe
+	@echo "Compilation Ok"
+
+$(tapis_o)/_tapis_1.a : $(tapis_c)/tapis.mki $(tapis_o)/tapis.o $(tapis_o)/_init.o 
+	rm -f $@ 
+	$(_LDI1) $(tapis_o)/tapis.o $(tapis_o)/_init.o $(_LDI2)
+	$(_AR) s $@
+
+$(tapis_o)/tapis.exe : $(tapis_o)/_tapis_1.a $(_simu_o)/cb_main.o $(_simu_o)/cb_memory.o $(_simu_o)/cb_hook.o $(_simu_o)/cb_io.o $(_simu_o)/cb_products.o $(_simu_o)/iec_1131.o 
+	@echo "unsigned int getSignature(void) { return " > $(tapis_c)/_sign.c
+	@cat //C/temp/TP_1_TAPI/Applications/tapis_conv/functional/tapis/exec/_sign.txt >> $(tapis_c)/_sign.c
+	@echo "u; }" >> $(tapis_c)/_sign.c
+	@echo "int getGenerationTime(void) { return " >> $(tapis_c)/_sign.c
+	@cat //C/temp/TP_1_TAPI/Applications/tapis_conv/functional/tapis/exec/obj/_time.txt >> $(tapis_c)/_sign.c
+	@echo "; }" >> $(tapis_c)/_sign.c
+	gcc -c $(tapis_c)/_sign.c -o $(tapis_o)/_sign.o
+	$(_LD1) $(tapis_o)/_tapis_1.a $(_simu_o)/cb_main.o $(_simu_o)/cb_memory.o $(_simu_o)/cb_hook.o $(_simu_o)/cb_io.o $(_simu_o)/cb_products.o $(_simu_o)/iec_1131.o $(tapis_o)/_sign.o $(_LD2)
+	@echo "New Signature"
+
+### Directories making for .o files :
+$(tapis_o) :
+	@mkdir $@
+
+### Compilation rules :
+$(tapis_o)/tapis.o : $(tapis_c)/tapis.c $(tapis_c)/tapis.h
+	$(_CC1) $(tapis_c)/tapis.c
+	$(_CC2)
+$(tapis_o)/_init.o : $(tapis_c)/_init.c $(tapis_c)/_init.h
+	$(_CC1) $(tapis_c)/_init.c
+	$(_CC2)
+
+### Compilation rules for externals functions :
+$(_simu_o)/iec_1131.o : $(_simu_c)/iec_1131.c $(_simu_c)/iec_1131.h
+	$(_CC1) $(_simu_c)/iec_1131.c
+	$(_CC2)
+
+### Compilation rules for externals fbs :

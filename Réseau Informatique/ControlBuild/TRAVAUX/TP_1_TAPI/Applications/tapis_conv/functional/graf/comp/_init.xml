@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Generator: controlbuild -->
+
+<project xmlns="http://www.plcopen.org/xml/tc6.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.plcopen.org/xml/tc6.xsd TC6_XML_V099_TNI.xsd">
+	<fileHeader companyName="TNI-Software" productName="ControlBuild" productVersion="4.00" creationDateTime="2018-09-17T16:16:55-01:00" />
+	<contentHeader name="graf">
+		<coordinateInfo>
+			<fbd>
+				<scaling x="100" y="100" />
+			</fbd>
+			<ld>
+				<scaling x="100" y="100" />
+			</ld>
+			<sfc>
+				<scaling x="32" y="8" />
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes />
+		<pous>
+		</pous>
+	</types>
+	<instances>
+		<configurations>
+			<configuration name="graf">
+				<globalVars>
+					<variable name="simuperiod">
+						<type>
+							<REAL />
+						</type>
+						<initialValue>
+							<simpleValue value="50000.0" />
+						</initialValue>
+					</variable>
+					<variable name="taskname">
+						<type>
+							<string length="50" />
+						</type>
+						<initialValue>
+							<simpleValue value="&apos;graf.exe&apos;" />
+						</initialValue>
+					</variable>
+					<variable name="allowpreconditions">
+						<type>
+							<BOOL />
+						</type>
+						<initialValue>
+							<simpleValue value="true" />
+						</initialValue>
+					</variable>
+					<variable name="allowpostconditions">
+						<type>
+							<BOOL />
+						</type>
+						<initialValue>
+							<simpleValue value="true" />
+						</initialValue>
+					</variable>
+				</globalVars>
+				<documentation>CB.ActorsAndProductsDeclaration=&quot;T_ElementTableActeursProduits TableActeursProduits[] = {
+	{{0, 0, 0, 0}, {0, 0, 0, 0},
+	0, 0, 0, 0, {{0, 0}, {0, 0}}}
+};
+T_Instance NbActeurs = 0;
+T_Instance NbProduits = 0;
+T_Instance NbActeursEtProduits = 0;
+
+&quot;
+CB.timecycle=50000.0
+CB.execstatus=mx_exec_status_stop
+CB.delay=0
+</documentation>
+			</configuration>
+		</configurations>
+	</instances>
+</project>

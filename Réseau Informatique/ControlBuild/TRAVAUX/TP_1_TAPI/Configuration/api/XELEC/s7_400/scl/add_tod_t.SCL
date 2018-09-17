@@ -1,0 +1,8 @@
+(* sum of time_of_day with time  *)
+tmpDINT := $1 + $3;
+IF tmpDINT >= 864000000 THEN
+    $4 := tmpDINT - 864000000;
+ELSE
+    $4 := tmpDINT;
+END_IF;
+

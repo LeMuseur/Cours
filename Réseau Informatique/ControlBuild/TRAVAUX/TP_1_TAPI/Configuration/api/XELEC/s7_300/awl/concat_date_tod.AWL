@@ -1,0 +1,12 @@
+// concatenates date and time
+
+      L     $1; 
+      T     $3; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      L     $2; 
+      T     $4; 
+      NOP   0; 
+

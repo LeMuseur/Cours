@@ -1,0 +1,45 @@
+UTF8#1 11 TNI Sos mac120 42 
+
+1 3 1 2 4 graf3 0 0 0 0 0 
+2 73 18 IdentifierProperty1 36 227214aa-a721-42ac-86b0-a553c0bfd2340 
+3 5 3 4 5 6 0 0 4 graf1 1 7 7 21 27 39 40 41 42 0 0 10 10 0 0 1 n 0 0 0 
+4 73 14 sdPropertyName1 10 15371978870 
+5 73 18 IdentifierProperty1 36 efe975a5-8e87-45a7-b083-1a2948f6e9e60 
+6 73 15 dlcPropertyName1 1 00 
+7 7 0 0 1 3 0 2 8 13 1 0 0 
+8 7 1 9 9 Retour_PO1 3 7 1 10 1 0 0 
+9 73 18 IdentifierProperty1 36 a41d3cae-c9e3-4ad8-a324-6e071d1373a50 
+10 8 1 11 8 0 13 Fin_Convoyage1 3 8 12 0 0 
+11 73 18 IdentifierProperty1 36 dc4fee9b-b1d5-457b-a4a3-a3c4abede5f80 
+12 21 -1 0 0 
+13 7 1 14 18 Retour_Utilisateur1 3 7 2 15 18 1 0 0 
+14 73 18 IdentifierProperty1 36 0ff50050-3c25-4245-bcee-08c0a1e185fb0 
+15 8 1 16 13 0 10 Chargement1 3 13 17 0 0 
+16 73 18 IdentifierProperty1 36 c3277043-ed28-4788-bd18-ee860ad377760 
+17 21 -1 0 0 
+18 8 1 19 13 0 12 Dechargement1 3 13 20 0 0 
+19 73 18 IdentifierProperty1 36 0aa6e06c-5095-45b8-ab65-ca5f332b30c40 
+20 21 -1 0 0 
+21 7 0 0 2 3 0 1 22 1 0 0 
+22 7 1 23 11 Commande_PO2 3 21 1 24 1 0 0 
+23 73 18 IdentifierProperty1 36 b01dd1b5-dcf0-4e9e-8e94-4e7d10155d9f0 
+24 8 1 25 22 0 6 Marche2 3 22 26 0 0 
+25 73 18 IdentifierProperty1 36 8bd26446-ae17-40d5-b8b9-c8151902fedf0 
+26 21 -1 0 0 
+27 7 0 0 3 3 0 5 28 30 32 34 36 1 0 0 
+28 8 0 27 0 5 _X_103 3 27 29 0 0 
+29 21 -1 0 1 
+30 8 0 27 0 5 _X_113 3 27 31 0 0 
+31 21 -1 0 0 
+32 8 0 27 0 5 _X_203 3 27 33 0 0 
+33 21 -1 0 1 
+34 8 0 27 0 5 _X_213 3 27 35 0 0 
+35 21 -1 0 0 
+36 8 1 37 27 0 8 nb_piece3 3 27 38 0 0 
+37 73 18 IdentifierProperty1 36 ceab6d17-8bbe-401b-b0c6-886f85f313fe0 
+38 24 -1 0 0 
+39 7 0 0 4 3 0 0 1 0 0 
+40 7 0 0 5 3 0 0 1 0 0 
+41 7 0 0 6 3 0 0 1 0 0 
+42 7 0 0 7 3 0 0 1 0 0 
+ "J´

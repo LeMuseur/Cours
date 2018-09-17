@@ -1,0 +1,19 @@
+UTF8#1 13 animax MaxSim120 16 
+
+1 1 6 2 8 9 10 11 12 14 model_stockage1 13 0 
+2 2 1 3 1 7 14 representation0 0 1000 1000 
+3 4 9 Container1 4 286 142 528 476 5 
+4 9 0 286 142 528 476 6 0 255 
+5 25 0 0 0 6 
+6 26 0 
+7 3 0 69 if Nb_Pieces > 9 then Container  blink(red gray) else Container  gray
+8 2 0 0 14 representation0 0 1000 1000 
+9 2 0 0 14 representation0 0 1000 1000 
+10 2 0 0 14 representation0 0 1000 1000 
+11 2 0 0 14 representation0 0 1000 1000 
+12 2 0 0 14 representation0 0 1000 1000 
+13 14 0 358 154 458 254 14 0 0 2 0 9 
+14 24 1 15 9 Nb_Pieces16 
+15 65 23 ModelIdentifierProperty1 36 11dd4017-4408-48d3-8259-679c232442130 
+16 31 422 0 0 
+¤¢Á

@@ -1,0 +1,1628 @@
+/* Title : Automatically generated doc
+ * Date : 15/03/2005 11:07
+ */
+
+METHOD Project.Models_extractor(fileNameAndTemplate : String) : VOID(String);
+
+METHOD Project.Application_extractor(fileNameAndTemplate : String) : VOID(String);
+
+METHOD Project.Extracteur_de_modeles(fileNameAndTemplate : String) : VOID(String);
+
+METHOD Project.Extracteur_d_application(fileNameAndTemplate : String) : VOID(String);
+
+METHOD Project.createGeneratedDocuments() : {
+	createDoc("Models extractor",CLASS(Project)).{
+		createDataLoop("comp2",CLASS(Project).featureNamed("allComponents"),getVariableNamed("project"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+			createStructureEx("title","").{
+				createStructureEx("sectionTitle","").{
+					createText("Model : ");
+					createDataText(CLASS(Component).featureNamed("name"),getVariableNamed("comp2"),VOID(DocParameter));
+				};
+				createStructureEx("title","").{
+					createStructureEx("sectionTitle","").{
+						createText("Description");
+					};
+					createStructureEx("title","").{
+						createStructureEx("sectionTitle","").{
+							createText("Comments");
+						};
+						createStructureEx("paragraph","").{
+							createDataText(CLASS(Component).featureNamed("comments"),getVariableNamed("comp2"),VOID(DocParameter));
+						};
+					};
+					createStructureEx("title","$SOME(getPreSFC) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Prel-SFC");
+						};
+						createStructureEx("paragraph","").{
+							createDataText(CLASS(Component).featureNamed("getPreSFC"),getVariableNamed("comp2"),VOID(DocParameter));
+						};
+					};
+					createStructureEx("title","").{
+						createStructureEx("sectionTitle","").{
+							createText("Behaviour");
+						};
+						createStructureEx("mediaobject","").{
+							createDataImage(CLASS(Component).featureNamed("getDiagramAsMetafile"),getVariableNamed("comp2"),VOID(DocParameter));
+						};
+						createStructureEx("paragraph","").{
+							createDataText(CLASS(Component).featureNamed("getTextCode"),getVariableNamed("comp2"),VOID(DocParameter));
+						};
+					};
+					createStructureEx("title","$SOME(getPostSFC) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Post-SFC");
+						};
+						createStructureEx("paragraph","").{
+							createDataText(CLASS(Component).featureNamed("getPostSFC"),getVariableNamed("comp2"),VOID(DocParameter));
+						};
+					};
+				};
+				createStructureEx("title","$SOME(allDocumentations)=TRUE").{
+					createStructureEx("sectionTitle","").{
+						createText("Additional notes");
+					};
+					createDataLoop("doc1",CLASS(Component).featureNamed("allDocumentations"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+						createStructureEx("title","").{
+							createStructureEx("sectionTitle","").{
+								createText("Document : ");
+								createDataText(CLASS(Documentation).featureNamed("name"),getVariableNamed("doc1"),VOID(DocParameter));
+							};
+							createStructureEx("paragraph","").{
+								createDataText(CLASS(Documentation).featureNamed("getDocumentation"),getVariableNamed("doc1"),VOID(DocParameter));
+							};
+						};
+					};
+				};
+				createStructureEx("title","").{
+					createStructureEx("sectionTitle","").{
+						createText("Variables list");
+					};
+					createStructureEx("title","$SOME(allVariables[isInput]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Inputs variables ");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Name");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","50pt");
+									EACH; }.{
+									createText("Value");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","250pt");
+									EACH; }.{
+									createText("Comment");
+								};
+							};
+							createDataLoop("var1",CLASS(Component).featureNamed("allVariables"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+TRUE,"isInput",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var1"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var1"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var1"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("comments"),getVariableNamed("var1"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isOutput]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Outputs variables ");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Name");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","50pt");
+									EACH; }.{
+									createText("Value");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","250pt");
+									EACH; }.{
+									createText("Comment");
+								};
+							};
+							createDataLoop("var2",CLASS(Component).featureNamed("allVariables"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+TRUE,"isOutput",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var2"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var2"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var2"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("comments"),getVariableNamed("var2"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isLocal AND name != ""_X_""]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Locals variables ");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Name");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","50pt");
+									EACH; }.{
+									createText("Value");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","250pt");
+									EACH; }.{
+									createText("Comment");
+								};
+							};
+							createDataLoop("var3",CLASS(Component).featureNamed("allVariables"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+TRUE,"isLocal",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var3"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var3"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var3"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("comments"),getVariableNamed("var3"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isParameter]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Parameters  ");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Name");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","50pt");
+									EACH; }.{
+									createText("Value");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","250pt");
+									EACH; }.{
+									createText("Comment");
+								};
+							};
+							createDataLoop("var4",CLASS(Component).featureNamed("allVariables"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+TRUE,"isParameter",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var4"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var4"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var4"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("comments"),getVariableNamed("var4"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isFault]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Faults variables ");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Name");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","50pt");
+									EACH; }.{
+									createText("Value");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","250pt");
+									EACH; }.{
+									createText("Comment");
+								};
+							};
+							createDataLoop("var5",CLASS(Component).featureNamed("allVariables"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+TRUE,"isFault",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var5"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var5"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var5"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("comments"),getVariableNamed("var5"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isOverControl]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Overcontrols variables ");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Name");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","50pt");
+									EACH; }.{
+									createText("Value");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","250pt");
+									EACH; }.{
+									createText("Comment");
+								};
+							};
+							createDataLoop("var6",CLASS(Component).featureNamed("allVariables"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+TRUE,"isOverControl",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var6"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var6"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var6"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("comments"),getVariableNamed("var6"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+				};
+				createStructureEx("title","$SOME(allScenarios)=TRUE").{
+					createStructureEx("sectionTitle","").{
+						createText("Scenarios");
+					};
+					createDataLoop("scen1",CLASS(Component).featureNamed("allScenarios"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+						createStructureEx("title","").{
+							createStructureEx("sectionTitle","").{
+								createText("Name :  ");
+								createDataText(CLASS(Scenario).featureNamed("name"),getVariableNamed("scen1"),VOID(DocParameter));
+							};
+							createStructureEx("table","").{
+								createStructureEx("titleRow","").{
+									createStructureEx("columnTitle","").{
+										setParameterValue("columnWidth","80pt");
+										EACH; }.{
+										createText("State");
+									};
+									createStructureEx("columnTitle","").{
+										setParameterValue("columnWidth","400pt");
+										EACH; }.{
+										createText("Actions & Tests");
+									};
+								};
+								createDataLoop("stat1",CLASS(Scenario).featureNamed("states"),getVariableNamed("scen1"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+									createStructureEx("line","").{
+										createStructureEx("cell","").{
+											createDataText(CLASS(State).featureNamed("name"),getVariableNamed("stat1"),VOID(DocParameter));
+										};
+										createStructureEx("cell","").{
+											createDataText(CLASS(State).featureNamed("code"),getVariableNamed("stat1"),VOID(DocParameter));
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+				createStructureEx("title","$SOME(allConsoles)=TRUE").{
+					createStructureEx("sectionTitle","").{
+						createText("Consoles");
+					};
+					createDataLoop("cons1",CLASS(Component).featureNamed("allConsoles"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+						createStructureEx("title","").{
+							createStructureEx("sectionTitle","").{
+								createText("Name :");
+								createDataText(CLASS(Console).featureNamed("name"),getVariableNamed("cons1"),VOID(DocParameter));
+							};
+							createStructureEx("mediaobject","").{
+								createDataImage(CLASS(Console).featureNamed("getDiagramImages"),getVariableNamed("cons1"),VOID(DocParameter));
+							};
+						};
+					};
+				};
+				createStructureEx("title","$SOME(allMANs)=TRUE").{
+					createStructureEx("sectionTitle","").{
+						createText("MANs");
+					};
+					createDataLoop("man1",CLASS(Component).featureNamed("allMANs"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+						createStructureEx("title","").{
+							createStructureEx("sectionTitle","").{
+								createText("Name : ");
+								createDataText(CLASS(MAN).featureNamed("name"),getVariableNamed("man1"),VOID(DocParameter));
+							};
+							createStructureEx("mediaobject","").{
+								createDataImage(CLASS(MAN).featureNamed("getDiagramImages"),getVariableNamed("man1"),VOID(DocParameter));
+							};
+						};
+					};
+				};
+				createStructureEx("title","$SOME(allMimics)=TRUE").{
+					createStructureEx("sectionTitle","").{
+						createText("Mimics");
+					};
+					createDataLoop("mim1",CLASS(Component).featureNamed("allMimics"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+						createStructureEx("title","").{
+							createStructureEx("sectionTitle","").{
+								createText("Name : ");
+								createDataText(CLASS(Mimic).featureNamed("name"),getVariableNamed("mim1"),VOID(DocParameter));
+							};
+							createStructureEx("mediaobject","").{
+								createDataImage(CLASS(Mimic).featureNamed("getDiagramImages"),getVariableNamed("mim1"),VOID(DocParameter));
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+	createDoc("Application extractor",CLASS(Project)).{
+		createStructureEx("title","").{
+			createStructureEx("sectionTitle","").{
+				createText("Hierarchy");
+			};
+			createDataLoop("inst01",CLASS(Project).featureNamed("comments"),getVariableNamed("project"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+				createStructureEx("paragraph","").{
+					createDataText(CLASS(Instance).featureNamed("name"),getVariableNamed("inst01"),VOID(DocParameter));
+				};
+				createDataLoop("inst02",CLASS(Instance).featureNamed("allInstancesN_1"),getVariableNamed("inst01"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+					createDataLoop("comp02",CLASS(Instance).featureNamed("component"),getVariableNamed("inst02"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+						createStructureEx("paragraph","").{
+							createText("----- ");
+							createDataText(CLASS(Instance).featureNamed("name"),getVariableNamed("inst02"),VOID(DocParameter));
+							createText(" (");
+							createDataText(CLASS(Component).featureNamed("name"),getVariableNamed("comp02"),VOID(DocParameter));
+							createText(")");
+						};
+					};
+					createDataLoop("inst03",CLASS(Instance).featureNamed("allInstancesN_1"),getVariableNamed("inst02"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+						createDataLoop("comp03",CLASS(Instance).featureNamed("component"),getVariableNamed("inst03"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+							createStructureEx("paragraph","").{
+								createText("      ----- ");
+								createDataText(CLASS(Instance).featureNamed("name"),getVariableNamed("inst03"),VOID(DocParameter));
+								createText(" (");
+								createDataText(CLASS(Component).featureNamed("name"),getVariableNamed("comp03"),VOID(DocParameter));
+								createText(")");
+							};
+						};
+						createDataLoop("inst04",CLASS(Instance).featureNamed("allInstancesN_1"),getVariableNamed("inst03"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+							createDataLoop("comp04",CLASS(Instance).featureNamed("component"),getVariableNamed("inst04"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+								createStructureEx("paragraph","").{
+									createText("            -----");
+									createDataText(CLASS(Instance).featureNamed("name"),getVariableNamed("inst04"),VOID(DocParameter));
+									createText(" (");
+									createDataText(CLASS(Component).featureNamed("name"),getVariableNamed("comp04"),VOID(DocParameter));
+									createText(")");
+								};
+							};
+							createDataLoop("inst05",CLASS(Instance).featureNamed("allInstancesN_1"),getVariableNamed("inst04"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+								createDataLoop("comp05",CLASS(Instance).featureNamed("component"),getVariableNamed("inst05"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+									createStructureEx("paragraph","").{
+										createText("                  ----- ");
+										createDataText(CLASS(Instance).featureNamed("name"),getVariableNamed("inst05"),VOID(DocParameter));
+										createText(" (");
+										createDataText(CLASS(Component).featureNamed("name"),getVariableNamed("comp05"),VOID(DocParameter));
+										createText(")");
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+		createDataLoop("inst10",CLASS(Project).featureNamed("allInstances"),getVariableNamed("project"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+			createStructureEx("title","").{
+				createStructureEx("sectionTitle","").{
+					createText("Instance ");
+					createDataText(CLASS(Instance).featureNamed("name"),getVariableNamed("inst10"),VOID(DocParameter));
+				};
+				createStructureEx("code","").{
+					createDataText(CLASS(Instance).featureNamed("getTextCode"),getVariableNamed("inst10"),VOID(DocParameter));
+				};
+				createStructureEx("mediaobject","").{
+					createDataImage(CLASS(Instance).featureNamed("getDiagramAsMetafile"),getVariableNamed("inst10"),VOID(DocParameter));
+				};
+				createStructureEx("title","").{
+					createStructureEx("sectionTitle","").{
+						createText("Variables list");
+					};
+					createStructureEx("title","$SOME(allVariables[isInput]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Inputs variables ");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","5");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","140pt");
+									EACH; }.{
+									createText("Name");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","100pt");
+									EACH; }.{
+									createText("Nickname");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","45pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","50pt");
+									EACH; }.{
+									createText("Init value");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Producer's instance");
+								};
+							};
+							createDataLoop("varA",CLASS(Instance).featureNamed("allVariables"),getVariableNamed("inst10"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+								createDataLoop("varB",CLASS(Variable).featureNamed("producer"),getVariableNamed("varA"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+									createDataLoop("inst11",CLASS(Variable).featureNamed("instance"),getVariableNamed("varB"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+										createStructureEx("line","").{
+											createStructureEx("cell","").{
+												createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("varA"),VOID(DocParameter));
+											};
+											createStructureEx("cell","").{
+												createDataText(CLASS(Variable).featureNamed("mnemonic"),getVariableNamed("varA"),VOID(DocParameter));
+											};
+											createStructureEx("cell","").{
+												createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("varA"),VOID(DocParameter));
+											};
+											createStructureEx("cell","").{
+												createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("varA"),VOID(DocParameter));
+											};
+											createStructureEx("cell","").{
+												createDataText(CLASS(Instance).featureNamed("name"),getVariableNamed("inst11"),VOID(DocParameter));
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isOutput]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Outputs variables ");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Name");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nickname");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Init value");
+								};
+							};
+							createDataLoop("var8",CLASS(Instance).featureNamed("allVariables"),getVariableNamed("inst10"),VOID(DocParameter),FALSE$+TRUE,"isOutput",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var8"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("mnemonic"),getVariableNamed("var8"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var8"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var8"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isLocal]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Locals variables ");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Name");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nickname");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Init value");
+								};
+							};
+							createDataLoop("var9",CLASS(Instance).featureNamed("allVariables"),getVariableNamed("inst10"),VOID(DocParameter),FALSE$+TRUE,"isLocal",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var9"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("mnemonic"),getVariableNamed("var9"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var9"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var9"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isParameter]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Parameters ");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Name");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nickname");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Init value");
+								};
+							};
+							createDataLoop("var10",CLASS(Instance).featureNamed("allVariables"),getVariableNamed("inst10"),VOID(DocParameter),FALSE$+TRUE,"isParameter",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var10"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("mnemonic"),getVariableNamed("var10"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var10"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var10"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isFault]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Faults variables ");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Name");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nickname");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Init value");
+								};
+							};
+							createDataLoop("var11",CLASS(Instance).featureNamed("allVariables"),getVariableNamed("inst10"),VOID(DocParameter),FALSE$+TRUE,"isFault",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var11"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("mnemonic"),getVariableNamed("var11"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var11"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var11"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isOverControl]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Overcontrols variables ");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Name");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nickname");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Init value");
+								};
+							};
+							createDataLoop("var12",CLASS(Instance).featureNamed("allVariables"),getVariableNamed("inst10"),VOID(DocParameter),FALSE$+TRUE,"isOverControl",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var12"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("mnemonic"),getVariableNamed("var12"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var12"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var12"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+	createDoc("Extracteur de modèles",CLASS(Project)).{
+		createDataLoop("comp2",CLASS(Project).featureNamed("allComponents"),getVariableNamed("project"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+			createStructureEx("title","").{
+				createStructureEx("sectionTitle","").{
+					createText("Modèle : ");
+					createDataText(CLASS(Component).featureNamed("name"),getVariableNamed("comp2"),VOID(DocParameter));
+				};
+				createStructureEx("title","").{
+					createStructureEx("sectionTitle","").{
+						createText("Description");
+					};
+					createStructureEx("title","").{
+						createStructureEx("sectionTitle","").{
+							createText("Commentaire");
+						};
+						createStructureEx("paragraph","").{
+							createDataText(CLASS(Component).featureNamed("comments"),getVariableNamed("comp2"),VOID(DocParameter));
+						};
+					};
+					createStructureEx("title","$SOME(getPreSFC) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Prel-SFC");
+						};
+						createStructureEx("paragraph","").{
+							createDataText(CLASS(Component).featureNamed("getPreSFC"),getVariableNamed("comp2"),VOID(DocParameter));
+						};
+					};
+					createStructureEx("title","").{
+						createStructureEx("sectionTitle","").{
+							createText("Comportement");
+						};
+						createStructureEx("mediaobject","").{
+							createDataImage(CLASS(Component).featureNamed("getDiagramAsMetafile"),getVariableNamed("comp2"),VOID(DocParameter));
+						};
+						createStructureEx("paragraph","").{
+							createDataText(CLASS(Component).featureNamed("getTextCode"),getVariableNamed("comp2"),VOID(DocParameter));
+						};
+					};
+					createStructureEx("title","$SOME(getPostSFC) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Post-SFC");
+						};
+						createStructureEx("paragraph","").{
+							createDataText(CLASS(Component).featureNamed("getPostSFC"),getVariableNamed("comp2"),VOID(DocParameter));
+						};
+					};
+				};
+				createStructureEx("title","$SOME(allDocumentations)=TRUE").{
+					createStructureEx("sectionTitle","").{
+						createText("Notes additionnelles");
+					};
+					createDataLoop("doc1",CLASS(Component).featureNamed("allDocumentations"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+						createStructureEx("title","").{
+							createStructureEx("sectionTitle","").{
+								createText("Document : ");
+								createDataText(CLASS(Documentation).featureNamed("name"),getVariableNamed("doc1"),VOID(DocParameter));
+							};
+							createStructureEx("paragraph","").{
+								createDataText(CLASS(Documentation).featureNamed("getDocumentation"),getVariableNamed("doc1"),VOID(DocParameter));
+							};
+						};
+					};
+				};
+				createStructureEx("title","").{
+					createStructureEx("sectionTitle","").{
+						createText("Liste des variables");
+					};
+					createStructureEx("title","$SOME(allVariables[isInput]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Variables d'entrées");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nom");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","50pt");
+									EACH; }.{
+									createText("Valeur");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","250pt");
+									EACH; }.{
+									createText("Libellé");
+								};
+							};
+							createDataLoop("var1",CLASS(Component).featureNamed("allVariables"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+TRUE,"isInput",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var1"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var1"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var1"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("comments"),getVariableNamed("var1"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isOutput]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Variables de sorties");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nom");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","50pt");
+									EACH; }.{
+									createText("Valeur");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","250pt");
+									EACH; }.{
+									createText("Libellé");
+								};
+							};
+							createDataLoop("var2",CLASS(Component).featureNamed("allVariables"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+TRUE,"isOutput",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var2"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var2"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var2"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("comments"),getVariableNamed("var2"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isLocal AND name != ""_X_""]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Variables locales");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nom");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","50pt");
+									EACH; }.{
+									createText("Valeur");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","250pt");
+									EACH; }.{
+									createText("Libellé");
+								};
+							};
+							createDataLoop("var3",CLASS(Component).featureNamed("allVariables"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+TRUE,"isLocal",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var3"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var3"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var3"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("comments"),getVariableNamed("var3"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isParameter]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Paramètres");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nom");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","50pt");
+									EACH; }.{
+									createText("Valeur");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","250pt");
+									EACH; }.{
+									createText("Libellé");
+								};
+							};
+							createDataLoop("var4",CLASS(Component).featureNamed("allVariables"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+TRUE,"isParameter",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var4"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var4"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var4"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("comments"),getVariableNamed("var4"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isFault]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Variables de mise en défaut");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nom");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","50pt");
+									EACH; }.{
+									createText("Valeur");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","250pt");
+									EACH; }.{
+									createText("Libellé");
+								};
+							};
+							createDataLoop("var5",CLASS(Component).featureNamed("allVariables"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+TRUE,"isFault",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var5"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var5"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var5"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("comments"),getVariableNamed("var5"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isOverControl]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Variables de supervision");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nom");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","50pt");
+									EACH; }.{
+									createText("Valeur");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","250pt");
+									EACH; }.{
+									createText("Libellé");
+								};
+							};
+							createDataLoop("var6",CLASS(Component).featureNamed("allVariables"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+TRUE,"isOverControl",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var6"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var6"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var6"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("comments"),getVariableNamed("var6"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+				};
+				createStructureEx("title","$SOME(allScenarios)=TRUE").{
+					createStructureEx("sectionTitle","").{
+						createText("Scénarios");
+					};
+					createDataLoop("scen1",CLASS(Component).featureNamed("allScenarios"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+						createStructureEx("title","").{
+							createStructureEx("sectionTitle","").{
+								createText("Nom :  ");
+								createDataText(CLASS(Scenario).featureNamed("name"),getVariableNamed("scen1"),VOID(DocParameter));
+							};
+							createStructureEx("table","").{
+								createStructureEx("titleRow","").{
+									createStructureEx("columnTitle","").{
+										setParameterValue("columnWidth","80pt");
+										EACH; }.{
+										createText("Etats");
+									};
+									createStructureEx("columnTitle","").{
+										setParameterValue("columnWidth","400pt");
+										EACH; }.{
+										createText("Actions & Tests");
+									};
+								};
+								createDataLoop("stat1",CLASS(Scenario).featureNamed("states"),getVariableNamed("scen1"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+									createStructureEx("line","").{
+										createStructureEx("cell","").{
+											createDataText(CLASS(State).featureNamed("name"),getVariableNamed("stat1"),VOID(DocParameter));
+										};
+										createStructureEx("cell","").{
+											createDataText(CLASS(State).featureNamed("code"),getVariableNamed("stat1"),VOID(DocParameter));
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+				createStructureEx("title","$SOME(allConsoles)=TRUE").{
+					createStructureEx("sectionTitle","").{
+						createText("Pupitres");
+					};
+					createDataLoop("cons1",CLASS(Component).featureNamed("allConsoles"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+						createStructureEx("title","").{
+							createStructureEx("sectionTitle","").{
+								createText("Nom :");
+								createDataText(CLASS(Console).featureNamed("name"),getVariableNamed("cons1"),VOID(DocParameter));
+							};
+							createStructureEx("mediaobject","").{
+								createDataImage(CLASS(Console).featureNamed("getDiagramImages"),getVariableNamed("cons1"),VOID(DocParameter));
+							};
+						};
+					};
+				};
+				createStructureEx("title","$SOME(allMANs)=TRUE").{
+					createStructureEx("sectionTitle","").{
+						createText("MANs");
+					};
+					createDataLoop("man1",CLASS(Component).featureNamed("allMANs"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+						createStructureEx("title","").{
+							createStructureEx("sectionTitle","").{
+								createText("Nom : ");
+								createDataText(CLASS(MAN).featureNamed("name"),getVariableNamed("man1"),VOID(DocParameter));
+							};
+							createStructureEx("mediaobject","").{
+								createDataImage(CLASS(MAN).featureNamed("getDiagramImages"),getVariableNamed("man1"),VOID(DocParameter));
+							};
+						};
+					};
+				};
+				createStructureEx("title","$SOME(allMimics)=TRUE").{
+					createStructureEx("sectionTitle","").{
+						createText("Synoptiques");
+					};
+					createDataLoop("mim1",CLASS(Component).featureNamed("allMimics"),getVariableNamed("comp2"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+						createStructureEx("title","").{
+							createStructureEx("sectionTitle","").{
+								createText("Nom : ");
+								createDataText(CLASS(Mimic).featureNamed("name"),getVariableNamed("mim1"),VOID(DocParameter));
+							};
+							createStructureEx("mediaobject","").{
+								createDataImage(CLASS(Mimic).featureNamed("getDiagramImages"),getVariableNamed("mim1"),VOID(DocParameter));
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+	createDoc("Extracteur d'application",CLASS(Project)).{
+		createStructureEx("title","").{
+			createStructureEx("sectionTitle","").{
+				createText("Hiérarchie");
+			};
+			createDataLoop("inst01",CLASS(Project).featureNamed("comments"),getVariableNamed("project"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+				createStructureEx("paragraph","").{
+					createDataText(CLASS(Instance).featureNamed("name"),getVariableNamed("inst01"),VOID(DocParameter));
+				};
+				createDataLoop("inst02",CLASS(Instance).featureNamed("allInstancesN_1"),getVariableNamed("inst01"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+					createDataLoop("comp02",CLASS(Instance).featureNamed("component"),getVariableNamed("inst02"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+						createStructureEx("paragraph","").{
+							createText("----- ");
+							createDataText(CLASS(Instance).featureNamed("name"),getVariableNamed("inst02"),VOID(DocParameter));
+							createText(" (");
+							createDataText(CLASS(Component).featureNamed("name"),getVariableNamed("comp02"),VOID(DocParameter));
+							createText(")");
+						};
+					};
+					createDataLoop("inst03",CLASS(Instance).featureNamed("allInstancesN_1"),getVariableNamed("inst02"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+						createDataLoop("comp03",CLASS(Instance).featureNamed("component"),getVariableNamed("inst03"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+							createStructureEx("paragraph","").{
+								createText("      ----- ");
+								createDataText(CLASS(Instance).featureNamed("name"),getVariableNamed("inst03"),VOID(DocParameter));
+								createText(" (");
+								createDataText(CLASS(Component).featureNamed("name"),getVariableNamed("comp03"),VOID(DocParameter));
+								createText(")");
+							};
+						};
+						createDataLoop("inst04",CLASS(Instance).featureNamed("allInstancesN_1"),getVariableNamed("inst03"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+							createDataLoop("comp04",CLASS(Instance).featureNamed("component"),getVariableNamed("inst04"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+								createStructureEx("paragraph","").{
+									createText("            -----");
+									createDataText(CLASS(Instance).featureNamed("name"),getVariableNamed("inst04"),VOID(DocParameter));
+									createText(" (");
+									createDataText(CLASS(Component).featureNamed("name"),getVariableNamed("comp04"),VOID(DocParameter));
+									createText(")");
+								};
+							};
+							createDataLoop("inst05",CLASS(Instance).featureNamed("allInstancesN_1"),getVariableNamed("inst04"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+								createDataLoop("comp05",CLASS(Instance).featureNamed("component"),getVariableNamed("inst05"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+									createStructureEx("paragraph","").{
+										createText("                  ----- ");
+										createDataText(CLASS(Instance).featureNamed("name"),getVariableNamed("inst05"),VOID(DocParameter));
+										createText(" (");
+										createDataText(CLASS(Component).featureNamed("name"),getVariableNamed("comp05"),VOID(DocParameter));
+										createText(")");
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+		createDataLoop("inst10",CLASS(Project).featureNamed("allInstances"),getVariableNamed("project"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+			createStructureEx("title","").{
+				createStructureEx("sectionTitle","").{
+					createText("Instance ");
+					createDataText(CLASS(Instance).featureNamed("name"),getVariableNamed("inst10"),VOID(DocParameter));
+				};
+				createStructureEx("code","").{
+					createDataText(CLASS(Instance).featureNamed("getTextCode"),getVariableNamed("inst10"),VOID(DocParameter));
+				};
+				createStructureEx("mediaobject","").{
+					createDataImage(CLASS(Instance).featureNamed("getDiagramAsMetafile"),getVariableNamed("inst10"),VOID(DocParameter));
+				};
+				createStructureEx("title","").{
+					createStructureEx("sectionTitle","").{
+						createText("Liste de variables");
+					};
+					createStructureEx("title","$SOME(allVariables[isInput]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Variables d'entrées");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","5");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","140pt");
+									EACH; }.{
+									createText("Nom");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","100pt");
+									EACH; }.{
+									createText("Mnémonique");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","45pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","50pt");
+									EACH; }.{
+									createText("Valeur initiale");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Instance productrice");
+								};
+							};
+							createDataLoop("varA",CLASS(Instance).featureNamed("allVariables"),getVariableNamed("inst10"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+								createDataLoop("varB",CLASS(Variable).featureNamed("producer"),getVariableNamed("varA"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+									createDataLoop("inst11",CLASS(Variable).featureNamed("instance"),getVariableNamed("varB"),VOID(DocParameter),FALSE$+FALSE,"",VOID(ClassMember_)).{
+										createStructureEx("line","").{
+											createStructureEx("cell","").{
+												createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("varA"),VOID(DocParameter));
+											};
+											createStructureEx("cell","").{
+												createDataText(CLASS(Variable).featureNamed("mnemonic"),getVariableNamed("varA"),VOID(DocParameter));
+											};
+											createStructureEx("cell","").{
+												createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("varA"),VOID(DocParameter));
+											};
+											createStructureEx("cell","").{
+												createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("varA"),VOID(DocParameter));
+											};
+											createStructureEx("cell","").{
+												createDataText(CLASS(Instance).featureNamed("name"),getVariableNamed("inst11"),VOID(DocParameter));
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isOutput]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("variables de sorties");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nom");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Mnémonique");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Valeur initiale");
+								};
+							};
+							createDataLoop("var8",CLASS(Instance).featureNamed("allVariables"),getVariableNamed("inst10"),VOID(DocParameter),FALSE$+TRUE,"isOutput",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var8"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("mnemonic"),getVariableNamed("var8"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var8"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var8"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isLocal]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Variables locales");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nom");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Mnémonique");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Valeur initiale");
+								};
+							};
+							createDataLoop("var9",CLASS(Instance).featureNamed("allVariables"),getVariableNamed("inst10"),VOID(DocParameter),FALSE$+TRUE,"isLocal",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var9"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("mnemonic"),getVariableNamed("var9"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var9"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var9"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isParameter]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Paramètres");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nom");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Mnémonique");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Valeur initiale");
+								};
+							};
+							createDataLoop("var10",CLASS(Instance).featureNamed("allVariables"),getVariableNamed("inst10"),VOID(DocParameter),FALSE$+TRUE,"isParameter",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var10"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("mnemonic"),getVariableNamed("var10"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var10"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var10"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isFault]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Variables locales");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nom");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Mnémonique");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Valeur initiale");
+								};
+							};
+							createDataLoop("var11",CLASS(Instance).featureNamed("allVariables"),getVariableNamed("inst10"),VOID(DocParameter),FALSE$+TRUE,"isFault",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var11"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("mnemonic"),getVariableNamed("var11"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var11"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var11"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+					createStructureEx("title","$SOME(allVariables[isOverControl]) = TRUE").{
+						createStructureEx("sectionTitle","").{
+							createText("Variables de supervision");
+						};
+						createStructureEx("table","").{
+							setParameterValue("numberOfColumns","4");
+							EACH; }.{
+							createStructureEx("titleRow","").{
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Nom");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","120pt");
+									EACH; }.{
+									createText("Mnémonique");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Type");
+								};
+								createStructureEx("columnTitle","").{
+									setParameterValue("columnWidth","60pt");
+									EACH; }.{
+									createText("Valeur initiale");
+								};
+							};
+							createDataLoop("var12",CLASS(Instance).featureNamed("allVariables"),getVariableNamed("inst10"),VOID(DocParameter),FALSE$+TRUE,"isOverControl",CLASS(Variable).featureNamed("type")).{
+								createStructureEx("line","").{
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("name"),getVariableNamed("var12"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("mnemonic"),getVariableNamed("var12"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("type"),getVariableNamed("var12"),VOID(DocParameter));
+									};
+									createStructureEx("cell","").{
+										createDataText(CLASS(Variable).featureNamed("valeurInit"),getVariableNamed("var12"),VOID(DocParameter));
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+}

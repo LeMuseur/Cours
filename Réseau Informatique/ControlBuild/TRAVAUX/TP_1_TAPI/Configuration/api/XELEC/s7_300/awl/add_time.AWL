@@ -1,0 +1,37 @@
+// Sum of two time
+
+      L     $1; 
+      L     $3; 
+      +D    ; 
+      T     $5; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      L     $2; 
+      L     $4; 
+      +D    ; 
+      T     $6; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      L     $6; 
+      L     L#864000000; 
+      >=D   ; 
+      =     L      0.0; 
+      A     L      0.0; 
+      JNB   _1$7; 
+      L     $6; 
+      L     L#864000000; 
+      -D    ; 
+      T     $6; 
+_1$7: NOP   0; 
+      A     L      0.0; 
+      JNB   _2$7; 
+      L     $5; 
+      L     L#1; 
+      +D    ; 
+      T     $5; 
+_2$7: NOP   0; 
+

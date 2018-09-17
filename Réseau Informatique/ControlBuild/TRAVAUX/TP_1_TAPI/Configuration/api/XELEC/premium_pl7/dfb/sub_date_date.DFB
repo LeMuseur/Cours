@@ -1,0 +1,23 @@
+[SOURCE_UNIT]
+SU_TYPE = F_B
+NAME = 'DEFAULT'
+VERSION = '00.24'
+DATE = DATE_AND_TIME #2004-02-09-17:16:18
+LANGUAGE = ST
+BODY = 
+(*Auteur : TNI-Software*)
+FUNCTION_BLOCK Sub_date_date
+VAR_INPUT
+En : BOOL (*Reserved*) := TRUE;
+Nbdays0 : DWORD := 0;
+Nbdays1 : DWORD := 0;
+END_VAR
+VAR_OUTPUT
+Out0 : AR_D : 2 := ( 0, 
+0 ) ;
+END_VAR
+(*PHRASE*)
+(* difference of date  *)
+Out0[0] :=Nbdays0 - Nbdays1;
+(*END_PHRASE*)
+END_FUNCTION_BLOCK

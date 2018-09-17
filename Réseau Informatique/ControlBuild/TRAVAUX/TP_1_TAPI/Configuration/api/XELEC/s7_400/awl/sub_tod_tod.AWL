@@ -1,0 +1,8 @@
+// difference between two tod
+
+      L     $1; 
+      L     $2; 
+      -D    ; 
+      T     $4; 
+      NOP   0; 
+
