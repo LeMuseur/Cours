@@ -27,9 +27,9 @@ public class Test
      */
     public static void main()
     {
-        PointDegDec PDD = new PointDegDec(20,10.0525);
-        PointDegRad PDG = new PointDegRad(0.3490658503988659,0.17453292519943295);
-        int TabLon[] = {20,5,2};
+        PointDegDec PDD = new PointDegDec(10.0525,10.0525);
+        PointDegRad PDG = new PointDegRad(0.17544922305672997,0.17544922305672997);
+        int TabLon[] = {10,3,9};
         int TabLat[] = {10,3,9};
         PointDegSexa PDS = new PointDegSexa(TabLon,TabLat);
 

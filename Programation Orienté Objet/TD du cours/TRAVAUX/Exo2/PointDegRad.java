@@ -5,7 +5,7 @@
  * @author (votre nom)
  * @version (un numéro de version ou une date)
  */
-public class PointDegRad
+public class PointDegRad implements ISvcPointGPS
 {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre
     private double longitude;
@@ -27,19 +27,19 @@ public class PointDegRad
     
     public void setLatitudeDegDec(double latitude )
     {
-        this.latitude = latitude*Math.PI/180;
+        this.latitude = latitude*Math.PI/180.;
     }
     public double getLatitudeDegDec()
     {
-        return this.latitude*180/Math.PI;
+        return this.latitude*180./Math.PI;
     }
     public void setLongitudeDegDec(double longitude )
     {
-        this.longitude = longitude*Math.PI/180;
+        this.longitude = longitude*Math.PI/180.;
     }
     public double getLongitudeDegDec()
     {
-        return this.longitude*180/Math.PI;
+        return this.longitude*180./Math.PI;
     }
     
     public void setLatitudeRad(double latitude )
@@ -61,28 +61,28 @@ public class PointDegRad
     
     public void setLatitudeDegSexa(int degre , int min, int sec )
     {
-        this.latitude = (degre+(min/60)+(sec/3600))*Math.PI/180;
+        this.latitude = (degre+(min/60.)+(sec/3600.))*Math.PI/180.;
     }
     public int[ ] getLatitudeDegSexa()
     {
         int [] LatitudeSexa = new int [3];
-        double latitude = this.latitude*180/Math.PI;
+        double latitude = this.latitude*180./Math.PI;
         LatitudeSexa[0]=(int)Math.floor(latitude);//Deg
-        LatitudeSexa[1]=(int)Math.floor((latitude-LatitudeSexa[0])*60);//Min
-        LatitudeSexa[2]=(int)Math.floor((((latitude-LatitudeSexa[0])*60)-LatitudeSexa[1])*60);//Sec
+        LatitudeSexa[1]=(int)Math.floor((latitude-LatitudeSexa[0])*60.);//Min
+        LatitudeSexa[2]=(int)Math.floor((((latitude-LatitudeSexa[0])*60.)-LatitudeSexa[1])*60.);//Sec
         return LatitudeSexa;
     }
     public void setLongitudeDegSexa(int degre , int min, int sec )
     {
-        this.longitude = (degre+(min/60)+(sec/3600))*Math.PI/180;
+        this.longitude = (degre+(min/60.)+(sec/3600.))*Math.PI/180.;
     }
     public int[ ] getLongitudeDegSexa()
     {
         int [] LongitudeSexa = new int [3];
-        double longitude = this.longitude*180/Math.PI;
+        double longitude = this.longitude*180./Math.PI;
         LongitudeSexa[0]=(int)Math.floor(longitude);//Deg
-        LongitudeSexa[1]=(int)Math.floor((longitude-LongitudeSexa[0])*60);//Min
-        LongitudeSexa[2]=(int)Math.floor((((longitude-LongitudeSexa[0])*60)-LongitudeSexa[1])*60);//Sec
+        LongitudeSexa[1]=(int)Math.floor((longitude-LongitudeSexa[0])*60.);//Min
+        LongitudeSexa[2]=(int)Math.floor((((longitude-LongitudeSexa[0])*60.)-LongitudeSexa[1])*60.);//Sec
         return LongitudeSexa;
     }
     

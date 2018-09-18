@@ -5,7 +5,7 @@
  * @author (votre nom)
  * @version (un numéro de version ou une date)
  */
-public class PointDegSexa
+public class PointDegSexa implements ISvcPointGPS
 {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre
     private int[ ] longitude;
@@ -56,7 +56,7 @@ public class PointDegSexa
     
     public double getLongitudeDegDec()
     {
-        return this.longitude[0]+(this.longitude[1]/60)+(this.longitude[2]/3600);
+        return this.longitude[0]+(this.longitude[1]/60.)+(this.longitude[2]/3600.);
     }
     
     public void setLatitudeRad(double latitude )
@@ -69,7 +69,7 @@ public class PointDegSexa
     
     public double getLatitudeRad()
     {
-        return (this.latitude[0]+(this.latitude[1]/60)+(this.latitude[2]/3600))*Math.PI/180;
+        return (this.latitude[0]+(this.latitude[1]/60.)+(this.latitude[2]/3600.))*Math.PI/180;
     }
     
     public void setLongitudeRag(double longitude )
@@ -77,12 +77,12 @@ public class PointDegSexa
         double longitudeC = longitude*Math.PI/180;
         this.longitude[0]=(int)Math.floor(longitude);//Deg
         this.longitude[1]=(int)Math.floor((longitude-this.longitude[0])*60);//Min
-        this.longitude[2]=(int)Math.floor((this.longitude[0]-this.longitude[1])*60);//Sec
+        this.longitude[2]=(int)Math.floor((((longitude-this.longitude[0])*60)-this.longitude[1])*60);//Sec
     }
     
     public double getLongitudeRad()
     {
-        return (this.longitude[0]+(this.longitude[1]/60)+(this.longitude[2]/3600))*Math.PI/180;
+        return (this.longitude[0]+(this.longitude[1]/60.)+(this.longitude[2]/3600.))*Math.PI/180;
     }
     
     public void setLatitudeDegSexa(int degre , int min, int sec )
